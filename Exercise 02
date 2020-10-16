@@ -1,0 +1,38 @@
+#Author : Arash Kamjoo
+
+file_content='''In 1899, the economist Thorstein Veblen observed that silver spoons and corsets were markers of elite social position. In Veblen’s now famous treatise The Theory of the Leisure Class, he coined the phrase ‘conspicuous consumption’ to denote the way that material objects were paraded as indicators of social position and status. More than 100 years later, conspicuous consumption is still part of the contemporary capitalist landscape, and yet today, luxury goods are significantly more accessible than in Veblen’s time. This deluge of accessible luxury is a function of the mass-production economy of the 20th century, the outsourcing of production to China, and the cultivation of emerging markets where labour and materials are cheap. At the same time, we’ve seen the arrival of a middle-class consumer market that demands more material goods at cheaper price points.
+However, the democratisation of consumer goods has made them far less useful as a means of displaying status. In the face of rising social inequality, both the rich and the middle classes own fancy TVs and nice handbags. They both lease SUVs, take airplanes, and go on cruises. On the surface, the ostensible consumer objects favoured by these two groups no longer reside in two completely different universes.
+Given that everyone can now buy designer handbags and new cars, the rich have taken to using much more tacit signifiers of their social position. Yes, oligarchs and the superrich still show off their wealth with yachts and Bentleys and gated mansions. But the dramatic changes in elite spending are driven by a well-to-do, educated elite, or what I call the ‘aspirational class’. This new elite cements its status through prizing knowledge and building cultural capital, not to mention the spending habits that go with it – preferring to spend on services, education and human-capital investments over purely material goods. These new status behaviours are what I call ‘inconspicuous consumption’. None of the consumer choices that the term covers are inherently obvious or ostensibly material but they are, without question, exclusionary.'''
+
+def show_dictionary(distionary_content):
+    for k in distionary_content:
+        print('''Item: \"%s\" Repeted:''' % k ,distionary_content[k])
+
+def remove_dot_comma(content):
+    resualt_content=''
+    for i in range(0,len(content)):
+        if (content[i] != '.' and content[i] != ','):
+            resualt_content = resualt_content + content[i]
+    return resualt_content
+
+def creat_dictionary(text):
+    content_dic = {}
+    splited_file = text.split(' ')
+
+    if len(text) ==0 :
+        print('Content is empty')
+        exit()
+
+    for i in range(0,len(splited_file)):
+        if content_dic.__contains__(splited_file[i]):
+            content_dic[splited_file[i]] = content_dic[splited_file[i]] + 1
+        else:
+            content_dic[splited_file[i]] = 1
+
+    return content_dic
+
+clear_content = remove_dot_comma(file_content)
+
+dictionary_file = creat_dictionary(clear_content)
+
+show_dictionary(dictionary_file)
