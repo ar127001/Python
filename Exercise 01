@@ -1,2 +1,4 @@
+#Author : Arash Kamjoo
+
 system_arg_int = [int(a) for a in sys.argv[1:]]
 print("Sum is: " , sum(system_arg_int))
